@@ -1,0 +1,78 @@
+<main class="max-w-2xl mx-auto px-6 py-20">
+  <h1 class="text-4xl font-bold text-gray-900 mb-2">Contacter</h1>
+  <p class="text-gray-500 mb-10">Envoie-moi un message, je te répondrai dès que possible.</p>
+
+  @if (status === 'success') {
+    <div class="bg-green-50 border border-green-200 text-green-700 rounded-lg px-5 py-4 mb-8">
+      Message envoyé avec succès !
+    </div>
+  }
+
+  @if (status === 'error') {
+    <div class="bg-red-50 border border-red-200 text-red-700 rounded-lg px-5 py-4 mb-8">
+      Une erreur est survenue. Réessaie ou contacte-moi directement par mail.
+    </div>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="send()" novalidate class="space-y-6">
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+      <input
+        formControlName="from_name"
+        type="text"
+        placeholder="Ton prénom et nom"
+        class="w-full rounded-lg border px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition
+               focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+               [&.ng-invalid.ng-touched]:border-red-400"
+      />
+      @if (name.invalid && name.touched) {
+        <p class="text-red-500 text-sm mt-1">
+          {{ name.hasError('required') ? 'Ce champ est requis.' : 'Minimum 2 caractères.' }}
+        </p>
+      }
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+      <input
+        formControlName="from_email"
+        type="email"
+        placeholder="ton@email.com"
+        class="w-full rounded-lg border px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition
+               focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+               [&.ng-invalid.ng-touched]:border-red-400"
+      />
+      @if (email.invalid && email.touched) {
+        <p class="text-red-500 text-sm mt-1">
+          {{ email.hasError('required') ? 'Ce champ est requis.' : 'Adresse email invalide.' }}
+        </p>
+      }
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+      <textarea
+        formControlName="message"
+        rows="5"
+        placeholder="Ton message..."
+        class="w-full rounded-lg border px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition resize-none
+               focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+               [&.ng-invalid.ng-touched]:border-red-400"
+      ></textarea>
+      @if (message.invalid && message.touched) {
+        <p class="text-red-500 text-sm mt-1">
+          {{ message.hasError('required') ? 'Ce champ est requis.' : 'Minimum 10 caractères.' }}
+        </p>
+      }
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="status === 'loading'"
+      class="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 disabled:cursor-not-allowed
+             text-white font-semibold rounded-lg px-6 py-3 transition"
+    >
+      {{ status === 'loading' ? 'Envoi en cours...' : 'Envoyer' }}
+    </button>
+  </form>
+</main>
