@@ -5,6 +5,7 @@ export interface Logo {
   title: string;
   description: string;
   tags: string[];
+  colors?: string[];
   link?: string;
 }
 
@@ -12,22 +13,25 @@ export interface Logo {
   selector: 'app-logo-gallery',
   standalone: true,
   templateUrl: './logo-gallery.component.html',
+  styleUrl: './logo-gallery.component.scss',
 })
 export class LogoGalleryComponent {
   // Remplace les valeurs par tes vrais contenus
   logos: Logo[] = [
     {
-      src: 'logos/Befriendlogo.png',
+      src: 'logos/V1.png',
       title: 'Logo 1',
-      description: 'Décris ici le contexte de ce logo, le client, les choix graphiques...',
+      description: 'Logo',
       tags: ['Branding', 'Illustrator'],
+      colors: ['#e11d48', '#f97316', '#facc15'],
       link: '',
     },
     {
-      src: 'logos/V1.png',
+      src: 'logos/Befriendlogo.png',
       title: 'Logo 2',
       description: 'Décris ici le contexte de ce logo, le client, les choix graphiques...',
       tags: ['Identité visuelle', 'Figma'],
+      colors: ['#6366f1', '#a855f7', '#ffffff'],
     },
   ];
 
@@ -55,6 +59,11 @@ export class LogoGalleryComponent {
   next() {
     if (this.activeIndex === null) return;
     this.activeIndex = (this.activeIndex + 1) % this.logos.length;
+  }
+
+  copyColor(color: string, event: MouseEvent) {
+    navigator.clipboard.writeText(color);
+    (event.currentTarget as HTMLElement).focus();
   }
 
   @HostListener('document:keydown', ['$event'])

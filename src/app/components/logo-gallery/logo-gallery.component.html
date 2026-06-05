@@ -69,6 +69,23 @@
           </div>
         }
 
+        <!-- Palette de couleurs -->
+        @if (active.colors?.length) {
+          <div>
+            <p class="text-xs text-gray-400 mb-3 uppercase tracking-wide">Palette</p>
+            <div class="container-items">
+              @for (color of active.colors; track color) {
+                <button
+                  class="item-color"
+                  [style.--color]="color"
+                  [attr.aria-color]="color"
+                  (click)="copyColor(color, $event)"
+                ></button>
+              }
+            </div>
+          </div>
+        }
+
         <!-- Lien optionnel -->
         @if (active.link) {
           <a
