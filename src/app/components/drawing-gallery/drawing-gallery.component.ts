@@ -13,15 +13,15 @@ export interface Drawing {
 export class DrawingGalleryComponent {
   // Remplace les valeurs par tes vrais contenus
   drawings: Drawing[] = [
-    { src: 'dessins/BlueCat.png', title: 'Dessin 1' },
-    { src: 'dessins/PurpleCat.png', title: 'Dessin 2' },
-    { src: 'dessins/cat2.png', title: 'Dessin 3' },
-    { src: 'dessins/adopt1.png', title: 'Dessin 4' },
-    { src: 'dessins/fan-art-vtuber1.png', title: 'Dessin 5' },
-    { src: 'dessins/pokemon1.0.png', title: 'Dessin 6' },
-    { src: 'dessins/fleur.png', title: 'Dessin 4' },
-    { src: 'dessins/rabbit.png', title: 'Dessin 5' },
-    { src: 'dessins/dndfairyv2.1.png', title: 'Dessin 6' },
+    { src: 'dessins/BlueCat.webp', title: 'Dessin 1' },
+    { src: 'dessins/PurpleCat.webp', title: 'Dessin 2' },
+    { src: 'dessins/cat2.webp', title: 'Dessin 3' },
+    { src: 'dessins/adopt1.webp', title: 'Dessin 4' },
+    { src: 'dessins/fan-art-vtuber1.webp', title: 'Dessin 5' },
+    { src: 'dessins/pokemon1.0.webp', title: 'Dessin 6' },
+    { src: 'dessins/fleur.webp', title: 'Dessin 4' },
+    { src: 'dessins/rabbit.webp', title: 'Dessin 5' },
+    { src: 'dessins/dndfairyv2.1.webp', title: 'Dessin 6' },
   ];
 
   activeIndex: number | null = null;

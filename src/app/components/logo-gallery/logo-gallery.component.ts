@@ -19,7 +19,7 @@ export class LogoGalleryComponent {
   // Remplace les valeurs par tes vrais contenus
   logos: Logo[] = [
     {
-      src: 'logos/V1.png',
+      src: 'logos/V1.webp',
       title: 'Logo 1',
       description: 'Logo',
       tags: ['Branding', 'Illustrator'],
@@ -27,7 +27,7 @@ export class LogoGalleryComponent {
       link: '',
     },
     {
-      src: 'logos/Befriendlogo.png',
+      src: 'logos/BefriendlogovV1.webp',
       title: 'Logo 2',
       description: 'Décris ici le contexte de ce logo, le client, les choix graphiques...',
       tags: ['Identité visuelle', 'Figma'],
