@@ -1,4 +1,5 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
+import { ModalStateService } from '../../services/modal-state.service';
 
 export interface Drawing {
   src: string;
@@ -11,7 +12,8 @@ export interface Drawing {
   templateUrl: './drawing-gallery.component.html',
 })
 export class DrawingGalleryComponent {
-  // Remplace les valeurs par tes vrais contenus
+  private modalState = inject(ModalStateService);
+
   drawings: Drawing[] = [
     { src: 'dessins/BlueCat.webp', title: 'Dessin 1' },
     { src: 'dessins/PurpleCat.webp', title: 'Dessin 2' },
@@ -32,11 +34,13 @@ export class DrawingGalleryComponent {
 
   open(index: number) {
     this.activeIndex = index;
+    this.modalState.isOpen.set(true);
     document.body.style.overflow = 'hidden';
   }
 
   close() {
     this.activeIndex = null;
+    this.modalState.isOpen.set(false);
     document.body.style.overflow = '';
   }
 

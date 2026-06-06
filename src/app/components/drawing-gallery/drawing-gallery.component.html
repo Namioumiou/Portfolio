@@ -1,24 +1,21 @@
-<!-- Grille -->
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
   @for (drawing of drawings; track drawing.src; let i = $index) {
     <button
       (click)="open(i)"
       class="group relative min-h-48 overflow-hidden rounded-2xl bg-gray-100 shadow-sm hover:shadow-lg hover:scale-[1.03] transition-[transform,box-shadow] duration-150 focus:outline-none"
     >
-      <!-- Placeholder en fond, visible si image absente -->
       <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400 bg-white">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 20.25h18A.75.75 0 0021.75 19.5V5.25A.75.75 0 0021 4.5H3a.75.75 0 00-.75.75v13.5c0 .414.336.75.75.75z"/>
         </svg>
         <span class="text-sm">{{ drawing.title }}</span>
       </div>
-      <!-- Image en flux normal, détermine la hauteur de la carte -->
       <img
         [src]="drawing.src"
         [alt]="drawing.title"
         loading="lazy"
         decoding="async"
-        class="relative z-10 w-full h-auto block transition-transform duration-150 group-hover:scale-105"
+        class="relative z-10 w-full h-auto block scale-[1.02] transition-transform duration-150 group-hover:scale-[1.07]"
         (error)="$any($event.target).style.display='none'"
       />
       <div class="absolute inset-0 z-20 bg-black/0 group-hover:bg-black/20 transition-colors duration-150 rounded-2xl"></div>
@@ -26,14 +23,12 @@
   }
 </div>
 
-<!-- Lightbox -->
 @if (active) {
   <div
     class="fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-black/85 backdrop-blur-sm p-4"
     (click)="close()"
     (keydown.escape)="close()"
   >
-    <!-- Image -->
     <img
       [src]="active.src"
       [alt]="active.title"
@@ -41,36 +36,26 @@
       (click)="$event.stopPropagation()"
       (keydown)="$event.stopPropagation()"
     />
-
-    <!-- Flèches + compteur -->
     <div class="flex items-center gap-4" (click)="$event.stopPropagation()" (keydown)="$event.stopPropagation()">
-      <button
-        (click)="prev()"
+      <button (click)="prev()"
         class="flex items-center justify-center w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 text-white transition-colors"
-        aria-label="Précédent"
-      >
+        aria-label="Précédent">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
         </svg>
       </button>
       <span class="text-white/60 text-sm">{{ (activeIndex ?? 0) + 1 }} / {{ drawings.length }}</span>
-      <button
-        (click)="next()"
+      <button (click)="next()"
         class="flex items-center justify-center w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 text-white transition-colors"
-        aria-label="Suivant"
-      >
+        aria-label="Suivant">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
         </svg>
       </button>
     </div>
-
-    <!-- Fermer -->
-    <button
-      (click)="close()"
+    <button (click)="close()"
       class="absolute top-5 right-5 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors"
-      aria-label="Fermer"
-    >
+      aria-label="Fermer">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
       </svg>

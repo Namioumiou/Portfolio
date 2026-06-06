@@ -1,6 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
+import { ModalStateService } from './services/modal-state.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 export class AppComponent {
   title = 'portfolio';
   showScrollTop = false;
+  modalState = inject(ModalStateService);
 
   @HostListener('window:scroll')
   onScroll() {
