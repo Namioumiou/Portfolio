@@ -14,12 +14,12 @@ const T = {
     },
     contact: {
       title: 'Contactez-moi',
-      name: 'Nom', namePlaceholder: 'Ton prénom et nom',
-      email: 'Email', emailPlaceholder: 'ton@email.com',
-      message: 'Message', messagePlaceholder: 'Ton message...',
+      name: 'Nom', namePlaceholder: 'Prénom et nom',
+      email: 'Email', emailPlaceholder: 'votre@email.com',
+      message: 'Message', messagePlaceholder: 'Message...',
       send: 'Envoyer', sending: 'Envoi en cours...',
       success: 'Message envoyé avec succès !',
-      error: 'Une erreur est survenue. Réessaie ou contacte-moi directement par mail.',
+      error: 'Une erreur est survenue. Réessayez ou contactez-moi directement par mail.',
       required: 'Ce champ est requis.',
       minName: 'Minimum 2 caractères.',
       minMessage: 'Minimum 10 caractères.',
@@ -48,14 +48,14 @@ const T = {
         ],
       },
       {
-        description: 'Une jeune fille se réveille seul dans sa maison qui paraît abandonnée, sans aucun souvenir de ce qu\'il c\'est passé. En explorant les lieux, elle découvre que son petit frère est également là, mais il l\'a fuit pour une raison inconnue. Elle va alors explorer les lieux pour retrouver son frère et découvrir la vérité sur ce qui s\'est passé.',
+        description: 'Une jeune fille se réveille seule dans sa maison qui paraît abandonnée, sans aucun souvenir de ce qu\'il s\'est passé. En explorant les lieux, elle découvre que son petit frère est également là, mais il l\'a fui pour une raison inconnue. Elle va alors explorer les lieux pour retrouver son frère et découvrir la vérité sur ce qui s\'est passé.',
         imageTitles: [],
         mechanics: [
           { title: 'Mémoires', description: 'Le joueur joue lors de sa première partie la petite fille. Lors de son aventure ses déplacements seront mémorisés et lorsque le joueur incarnera le petit garçon lors de la seconde partie, les déplacements de la petite fille seront rejoués en temps réel. Le joueur devra alors faire attention à ne pas croiser la petite fille pour ne pas se faire attraper.', imageTitles: [] },
         ],
       },
       {
-        description: 'Une jeune bard parcourt le monde afin de devenir la plus grande musicienne de tous les temps. En chemin, elle fera la rencontre de gens qu\'elle aidera avec sa musique et qui l\'aideront en retour.',
+        description: 'Une jeune barde parcourt le monde afin de devenir la plus grande musicienne de tous les temps. En chemin, elle fera la rencontre de gens qu\'elle aidera avec sa musique et qui l\'aideront en retour.',
         imageTitles: [],
         mechanics: [
           { title: 'Musique', description: 'Le joueur peut jouer de la musique à l\'aide d\'une interface dédiée. En fonction de la musique jouée, différents effets se produiront sur l\'environnement ou les personnages. Par exemple, jouer une mélodie joyeuse pourrait faire fleurir les plantes et attirer des animaux, tandis qu\'une mélodie triste pourrait faire pleuvoir et faire monter les eaux.', imageTitles: [] },
