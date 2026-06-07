@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        display: ['"Playfair Display"', 'serif'],
+        obrige: ['"La Obrige"', 'serif'],
+      },
+    },
   },
   plugins: [],
 }

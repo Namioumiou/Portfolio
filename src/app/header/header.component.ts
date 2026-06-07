@@ -11,7 +11,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class HeaderComponent {
   pillLeft = 0;
   pillWidth = 0;
-  pillColor = '#3b82f6';
+  pillColor = '#CA2E55';
   pillVisible = false;
 
   onHover(event: MouseEvent, color: string) {
