@@ -1,5 +1,5 @@
 <header class="bg-white top-0 z-50">
-  <nav class="relative max-w-5xl mx-auto px-6 flex items-center justify-center h-16 gap-2"
+  <nav class="relative max-w-5xl mx-auto px-4 md:px-6 grid grid-cols-[1fr_auto_1fr] items-center h-16"
        (mouseleave)="onLeave()">
 
     <span class="liquid-pill"
@@ -9,35 +9,41 @@
           [style.opacity]="pillVisible ? 1 : 0">
     </span>
 
-    <a routerLink="/" routerLinkActive="text-black font-semibold" [routerLinkActiveOptions]="{ exact: true }"
-       class="relative z-10 px-3 md:px-6 py-2 text-sm md:text-base text-gray-600 hover:text-white rounded-full transition-colors"
-       (mouseenter)="onHover($event, '#CA2E55')">{{ lang.t().nav.home }}</a>
+    <div></div>
 
-    <a routerLink="/a-propos" routerLinkActive="text-black font-semibold"
-       class="relative z-10 px-3 md:px-6 py-2 text-sm md:text-base text-gray-600 hover:text-white rounded-full transition-colors"
-       (mouseenter)="onHover($event, '#FEE1C7')">{{ lang.t().nav.about }}</a>
+    <div class="flex items-center gap-1 md:gap-2">
+      <a routerLink="/" routerLinkActive="text-black font-semibold" [routerLinkActiveOptions]="{ exact: true }"
+         class="relative z-10 px-3 md:px-6 py-2 text-sm md:text-base text-gray-600 hover:text-white rounded-full transition-colors"
+         (mouseenter)="onHover($event, '#CA2E55')">{{ lang.t().nav.home }}</a>
 
-    <a routerLink="/contacter" routerLinkActive="text-black font-semibold"
-       class="relative z-10 px-3 md:px-6 py-2 text-sm md:text-base text-gray-600 hover:text-white rounded-full transition-colors"
-       (mouseenter)="onHover($event, '#8A6552')">{{ lang.t().nav.contact }}</a>
+      <a routerLink="/a-propos" routerLinkActive="text-black font-semibold"
+         class="relative z-10 px-3 md:px-6 py-2 text-sm md:text-base text-gray-600 hover:text-white rounded-full transition-colors"
+         (mouseenter)="onHover($event, '#FEE1C7')">{{ lang.t().nav.about }}</a>
 
-    <div class="absolute right-4 md:right-6 flex rounded-full border border-gray-200 overflow-hidden text-xs font-semibold">
-      <button
-        (click)="lang.lang.set('fr')"
-        class="px-3 py-1 transition-colors duration-150"
-        [style.background-color]="lang.lang() === 'fr' ? '#CA2E55' : 'transparent'"
-        [class.text-white]="lang.lang() === 'fr'"
-        [class.text-gray-500]="lang.lang() !== 'fr'">
-        FR
-      </button>
-      <button
-        (click)="lang.lang.set('en')"
-        class="px-3 py-1 transition-colors duration-150"
-        [style.background-color]="lang.lang() === 'en' ? '#CA2E55' : 'transparent'"
-        [class.text-white]="lang.lang() === 'en'"
-        [class.text-gray-500]="lang.lang() !== 'en'">
-        EN
-      </button>
+      <a routerLink="/contacter" routerLinkActive="text-black font-semibold"
+         class="relative z-10 px-3 md:px-6 py-2 text-sm md:text-base text-gray-600 hover:text-white rounded-full transition-colors"
+         (mouseenter)="onHover($event, '#8A6552')">{{ lang.t().nav.contact }}</a>
+    </div>
+
+    <div class="flex justify-end">
+      <div class="relative z-10 flex rounded-full border border-gray-200 overflow-hidden text-xs font-semibold">
+        <button
+          (click)="lang.lang.set('fr')"
+          class="px-3 py-1 transition-colors duration-150"
+          [style.background-color]="lang.lang() === 'fr' ? '#CA2E55' : 'transparent'"
+          [class.text-white]="lang.lang() === 'fr'"
+          [class.text-gray-500]="lang.lang() !== 'fr'">
+          FR
+        </button>
+        <button
+          (click)="lang.lang.set('en')"
+          class="px-3 py-1 transition-colors duration-150"
+          [style.background-color]="lang.lang() === 'en' ? '#CA2E55' : 'transparent'"
+          [class.text-white]="lang.lang() === 'en'"
+          [class.text-gray-500]="lang.lang() !== 'en'">
+          EN
+        </button>
+      </div>
     </div>
   </nav>
 </header>
