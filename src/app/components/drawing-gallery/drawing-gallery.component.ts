@@ -15,15 +15,17 @@ export class DrawingGalleryComponent {
   private modalState = inject(ModalStateService);
 
   drawings: Drawing[] = [
-    { src: 'dessins/BlueCat.webp', title: 'Dessin 1' },
-    { src: 'dessins/PurpleCat.webp', title: 'Dessin 2' },
-    { src: 'dessins/cat2.webp', title: 'Dessin 3' },
-    { src: 'dessins/adopt1.webp', title: 'Dessin 4' },
-    { src: 'dessins/fan-art-vtuber1.webp', title: 'Dessin 5' },
-    { src: 'dessins/pokemon1.0.webp', title: 'Dessin 6' },
-    { src: 'dessins/fleur.webp', title: 'Dessin 4' },
-    { src: 'dessins/rabbit.webp', title: 'Dessin 5' },
-    { src: 'dessins/dndfairyv2.1.webp', title: 'Dessin 6' },
+    { src: 'dessins/BlueCat.webp', title: 'Fenêtre de chat bleu' },
+    { src: 'dessins/PurpleCat.webp', title: 'Fenêtre de chat violet' },
+    { src: 'dessins/cat2.webp', title: 'Chat dans la forêt' },
+    { src: 'dessins/adopt1.webp', title: 'Design original' },
+    { src: 'dessins/fan-art-vtuber1.webp', title: 'Fan Art d\'une VTubeuse' },
+    { src: 'dessins/pokemon1.0.webp', title: 'Reproduction d\'une carte pokémon' },
+    { src: 'dessins/fleur.webp', title: 'Fleur' },
+    { src: 'dessins/rabbit.webp', title: 'Model VTuber de lapin' },
+    { src: 'dessins/dndfairyv2.1.webp', title: 'Fée, personnage pour Dungeons et Dragons' },
+    { src: 'dessins/emoteEwanGnar1.webp', title: 'Emote Twitch' },
+    { src: 'dessins/emoteEwanGnar2.webp', title: 'Emote Twitch' },
   ];
 
   activeIndex: number | null = null;

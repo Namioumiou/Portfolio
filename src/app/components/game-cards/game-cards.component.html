@@ -1,53 +1,88 @@
 <div class="flex flex-col gap-6 md:gap-8">
+  @for (game of games; track game.title) {
+    <div class="relative flex flex-col md:flex-row overflow-hidden rounded-3xl shadow-lg"
+      [style.background-color]="game.bgColor">
 
-  <div class="relative flex flex-col overflow-hidden rounded-3xl shadow-lg min-h-[280px] md:min-h-[480px] bg-[#1e1b4b]">
-    <img src="jeux/jeu-1.webp" alt="Jeu 1" loading="lazy" decoding="async"
-      class="absolute inset-0 w-full h-full object-cover opacity-30"
-      (error)="$any($event.target).style.display='none'" />
-    <div class="relative z-10 flex flex-col gap-4 p-6 md:p-10 h-full text-white">
-      <h3 class="text-2xl md:text-3xl font-bold">Nom du jeu 1</h3>
-      <p class="text-base leading-relaxed opacity-80 max-w-2xl">
-        Décris ici ton jeu, le concept, les mécaniques, les technologies utilisées...
-      </p>
-      <div class="flex flex-wrap gap-2 mt-auto">
-        <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20">Unity</span>
-        <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20">2D</span>
-        <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20">Solo</span>
+      @if (game.sideImage) {
+        <div class="relative md:w-1/5 flex-shrink-0 overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none min-h-48 z-10">
+          <img [src]="game.sideImage" [alt]="game.title" loading="lazy"
+            class="absolute inset-0 w-full h-full object-contain transition-transform duration-300" />
+        </div>
+      }
+
+      <div class="relative z-20 flex flex-col gap-4 p-6 md:p-10 text-white flex-1">
+        <div class="flex flex-wrap gap-2 items-center">
+          <h3 class="text-2xl md:text-3xl font-bold mr-2">{{ game.title }}</h3>
+          @for (tag of game.tags; track tag) {
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20 mt-1">{{ tag }}</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <p class="text-xs font-bold uppercase tracking-wide text-white/50">Synopsis</p>
+          <p class="text-base leading-relaxed">{{ game.description }}</p>
+        </div>
+
+        @if (game.images?.length) {
+          <div class="flex gap-3 overflow-x-auto pb-2">
+            @for (img of game.images; track img.src) {
+              <div class="flex flex-col gap-1 flex-shrink-0 items-center">
+                @if (img.frames?.length) {
+                  <app-animated-image [src]="img.src" [frames]="img.frames!" [frameInterval]="img.frameInterval ?? 150"
+                    [alt]="img.title ?? game.title"
+                    imgClass="h-32 md:h-40 w-auto rounded-xl object-cover shadow-md cursor-pointer" />
+                } @else {
+                  <img [src]="img.src" [alt]="img.title ?? game.title" loading="lazy"
+                    class="h-32 md:h-40 w-auto rounded-xl object-cover shadow-md" />
+                }
+                @if (img.title) {
+                  <span class="text-xs text-white/50 text-center">{{ img.title }}</span>
+                }
+              </div>
+            }
+          </div>
+        }
+
+        @for (section of (game.sections ?? []); track section.title) {
+          <div class="flex flex-col gap-2 border-t border-white/20 pt-4 mt-2">
+            <p class="text-xs font-bold uppercase tracking-wide text-white">{{ section.title }}</p>
+            <p class="text-sm leading-relaxed">{{ section.text }}</p>
+          </div>
+        }
+
+        @if (game.mechanics?.length) {
+          <div class="flex flex-col gap-5 border-t border-white/20 pt-4 mt-2">
+            <p class="text-xs font-bold uppercase tracking-wide text-white/50">Mécanique clé</p>
+            @for (mechanic of game.mechanics; track mechanic.title) {
+              <div class="flex flex-col md:flex-row gap-4 items-start">
+                <div class="flex-1 flex flex-col gap-1">
+                  <h4 class="text-sm font-semibold text-white">{{ mechanic.title }}</h4>
+                  <p class="text-sm leading-relaxed ">{{ mechanic.description }}</p>
+                </div>
+                @if (mechanic.images?.length) {
+                  <div class="flex gap-3 overflow-x-auto pb-2 flex-shrink-0">
+                    @for (img of mechanic.images; track img.src) {
+                      <div class="flex flex-col gap-1 flex-shrink-0 items-center">
+                        @if (img.frames?.length) {
+                          <app-animated-image [src]="img.src" [frames]="img.frames!" [frameInterval]="img.frameInterval ?? 150"
+                            [alt]="img.title ?? mechanic.title"
+                            imgClass="h-32 md:h-40 w-auto rounded-xl object-cover shadow-md cursor-pointer" />
+                        } @else {
+                          <img [src]="img.src" [alt]="img.title ?? mechanic.title" loading="lazy"
+                            class="h-32 md:h-40 w-auto rounded-xl object-cover shadow-md" />
+                        }
+                        @if (img.title) {
+                          <span class="text-xs text-white/50 text-center">{{ img.title }}</span>
+                        }
+                      </div>
+                    }
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        }
       </div>
     </div>
-  </div>
-
-  <div class="relative flex flex-col overflow-hidden rounded-3xl shadow-lg min-h-[280px] md:min-h-[480px] bg-[#064e3b]">
-    <img src="jeux/jeu-2.webp" alt="Jeu 2" loading="lazy" decoding="async"
-      class="absolute inset-0 w-full h-full object-cover opacity-30"
-      (error)="$any($event.target).style.display='none'" />
-    <div class="relative z-10 flex flex-col gap-4 p-6 md:p-10 h-full text-white">
-      <h3 class="text-2xl md:text-3xl font-bold">Nom du jeu 2</h3>
-      <p class="text-base leading-relaxed opacity-80 max-w-2xl">
-        Décris ici ton jeu, le concept, les mécaniques, les technologies utilisées...
-      </p>
-      <div class="flex flex-wrap gap-2 mt-auto">
-        <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20">Godot</span>
-        <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20">Pixel art</span>
-        <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20">Game jam</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="relative flex flex-col overflow-hidden rounded-3xl shadow-lg min-h-[280px] md:min-h-[480px] bg-[#7c2d12]">
-    <img src="jeux/jeu-3.webp" alt="Jeu 3" loading="lazy" decoding="async"
-      class="absolute inset-0 w-full h-full object-cover opacity-30"
-      (error)="$any($event.target).style.display='none'" />
-    <div class="relative z-10 flex flex-col gap-4 p-6 md:p-10 h-full text-white">
-      <h3 class="text-2xl md:text-3xl font-bold">Nom du jeu 3</h3>
-      <p class="text-base leading-relaxed opacity-80 max-w-2xl">
-        Décris ici ton jeu, le concept, les mécaniques, les technologies utilisées...
-      </p>
-      <div class="flex flex-wrap gap-2 mt-auto">
-        <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20">Unreal</span>
-        <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20">3D</span>
-      </div>
-    </div>
-  </div>
-
+  }
 </div>
