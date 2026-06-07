@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-6 md:gap-8">
-  @for (game of games; track game.title) {
+  @for (game of games; track game.title; let i = $index) {
     <div class="relative flex flex-col md:flex-row overflow-hidden rounded-3xl shadow-lg"
       [style.background-color]="game.bgColor">
 
@@ -14,29 +14,29 @@
         <div class="flex flex-wrap gap-2 items-center">
           <h3 class="text-2xl md:text-3xl font-bold mr-2">{{ game.title }}</h3>
           @for (tag of game.tags; track tag) {
-            <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20 mt-1">{{ tag }}</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20 mt-1">{{ tagLabel(tag) }}</span>
           }
         </div>
 
         <div class="flex flex-col gap-2">
-          <p class="text-xs font-bold uppercase tracking-wide text-white/50">Synopsis</p>
-          <p class="text-base leading-relaxed">{{ game.description }}</p>
+          <p class="text-xs font-bold uppercase tracking-wide text-white/50">{{ lang.t().game.synopsis }}</p>
+          <p class="text-base leading-relaxed">{{ lang.t().games[i].description }}</p>
         </div>
 
         @if (game.images?.length) {
           <div class="flex gap-3 overflow-x-auto pb-2">
-            @for (img of game.images; track img.src) {
+            @for (img of game.images; track img.src; let ji = $index) {
               <div class="flex flex-col gap-1 flex-shrink-0 items-center">
                 @if (img.frames?.length) {
                   <app-animated-image [src]="img.src" [frames]="img.frames!" [frameInterval]="img.frameInterval ?? 150"
-                    [alt]="img.title ?? game.title"
+                    [alt]="titleAt(i, ji) ?? game.title"
                     imgClass="h-32 md:h-40 w-auto rounded-xl object-cover shadow-md cursor-pointer" />
                 } @else {
-                  <img [src]="img.src" [alt]="img.title ?? game.title" loading="lazy"
+                  <img [src]="img.src" [alt]="titleAt(i, ji) ?? game.title" loading="lazy"
                     class="h-32 md:h-40 w-auto rounded-xl object-cover shadow-md" />
                 }
                 @if (img.title) {
-                  <span class="text-xs text-white/50 text-center">{{ img.title }}</span>
+                  <span class="text-xs text-white/50 text-center">{{ titleAt(i, ji) ?? img.title }}</span>
                 }
               </div>
             }
@@ -52,12 +52,12 @@
 
         @if (game.mechanics?.length) {
           <div class="flex flex-col gap-5 border-t border-white/20 pt-4 mt-2">
-            <p class="text-xs font-bold uppercase tracking-wide text-white/50">Mécanique clé</p>
-            @for (mechanic of game.mechanics; track mechanic.title) {
+            <p class="text-xs font-bold uppercase tracking-wide text-white/50">{{ lang.t().game.mechanic }}</p>
+            @for (mechanic of game.mechanics; track mechanic.title; let mi = $index) {
               <div class="flex flex-col md:flex-row gap-4 items-start">
                 <div class="flex-1 flex flex-col gap-1">
-                  <h4 class="text-sm font-semibold text-white">{{ mechanic.title }}</h4>
-                  <p class="text-sm leading-relaxed ">{{ mechanic.description }}</p>
+                  <h4 class="text-sm font-semibold text-white">{{ lang.t().games[i].mechanics[mi].title }}</h4>
+                  <p class="text-sm leading-relaxed">{{ lang.t().games[i].mechanics[mi].description }}</p>
                 </div>
                 @if (mechanic.images?.length) {
                   <div class="flex gap-3 overflow-x-auto pb-2 flex-shrink-0">

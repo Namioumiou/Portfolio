@@ -1,9 +1,9 @@
 <main class="max-w-2xl mx-auto px-4 md:px-6 py-16 md:py-24 flex flex-col items-center gap-10">
 
   <div class="flex flex-col gap-4 text-center">
-    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">À propos</h1>
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">{{ lang.t().about.title }}</h1>
     <p class="text-gray-600 text-lg leading-relaxed">
-      Parle-moi de toi ici.
+      {{ lang.t().about.description }}
     </p>
   </div>
 
@@ -21,7 +21,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
       <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
     </svg>
-    Télécharger le CV
+    {{ lang.t().about.download }}
   </a>
 
 </main>

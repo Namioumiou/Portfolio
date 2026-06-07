@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AnimatedImageComponent } from '../animated-image/animated-image.component';
+import { LangService } from '../../services/lang.service';
 
 export interface GameImage {
   src: string;
@@ -37,6 +38,22 @@ export interface Game {
   templateUrl: './game-cards.component.html',
 })
 export class GameCardsComponent {
+  lang = inject(LangService);
+
+  tagLabel(tag: string): string {
+    return this.lang.t().tags[tag] ?? tag;
+  }
+
+  titleAt(gi: number, ii: number): string | undefined {
+    const titles = this.lang.t().games[gi]?.imageTitles ?? [];
+    return ii < titles.length ? titles[ii] : undefined;
+  }
+
+  mechanicTitleAt(gi: number, mi: number, ii: number): string | undefined {
+    const titles = this.lang.t().games[gi]?.mechanics[mi]?.imageTitles ?? [];
+    return ii < titles.length ? titles[ii] : undefined;
+  }
+
   games: Game[] = [
     {
       title: 'Colors of Dreams',
@@ -114,5 +131,4 @@ export class GameCardsComponent {
       ],
     },
   ];
-
 }

@@ -30,11 +30,11 @@
 
       <div class="flex-1 flex flex-col gap-5 p-5 md:p-7">
         <h3 class="text-2xl font-bold text-gray-900">{{ active.title }}</h3>
-        <p class="text-gray-500 leading-relaxed text-sm">{{ active.description }}</p>
+        <p class="text-gray-500 leading-relaxed text-sm">{{ activeDescription }}</p>
 
         @if (active.colors.length) {
           <div>
-            <p class="text-xs text-gray-400 mb-3 uppercase tracking-wide">Palette</p>
+            <p class="text-xs text-gray-400 mb-3 uppercase tracking-wide">{{ lang.t().logo.palette }}</p>
             <div class="container-items">
               @for (color of active.colors; track color) {
                 <button class="item-color" [style.--color]="color" [attr.aria-color]="color"
@@ -46,7 +46,7 @@
 
         @if (active.otherVersions?.length) {
           <div>
-            <p class="text-xs text-gray-400 mb-3 uppercase tracking-wide">Autres versions</p>
+            <p class="text-xs text-gray-400 mb-3 uppercase tracking-wide">{{ lang.t().logo.otherVersions }}</p>
             <div class="grid grid-cols-3 gap-2">
               @for (version of active.otherVersions; track version.src) {
                 <button (click)="setVersion(version)"
@@ -61,7 +61,7 @@
 
         @if (active.inspirations?.length) {
           <div>
-            <p class="text-xs text-gray-400 mb-3 uppercase tracking-wide">Inspiration</p>
+            <p class="text-xs text-gray-400 mb-3 uppercase tracking-wide">{{ lang.t().logo.inspiration }}</p>
             <div class="grid grid-cols-3 gap-2">
               @for (img of active.inspirations; track img) {
                 <div class="aspect-square rounded-xl overflow-hidden bg-gray-100">

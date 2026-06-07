@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import emailjs from '@emailjs/browser';
+import { LangService } from '../../services/lang.service';
 
-// Remplis ces valeurs depuis ton compte emailjs.com
 const EMAILJS_SERVICE_ID = 'service_wvo5koc';
 const EMAILJS_TEMPLATE_ID = 'template_3rsxaes';
 const EMAILJS_PUBLIC_KEY = '5J0d4Us7XaDodAZ-Z';
@@ -15,6 +15,7 @@ const EMAILJS_PUBLIC_KEY = '5J0d4Us7XaDodAZ-Z';
   templateUrl: './contact.component.html',
 })
 export class ContactComponent {
+  lang = inject(LangService);
   form: FormGroup;
   status: 'idle' | 'loading' | 'success' | 'error' = 'idle';
 

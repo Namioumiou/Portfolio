@@ -5,31 +5,31 @@
 
     <div class="flex flex-wrap items-center justify-center gap-4">
       <a href="#jeu" class="group flex flex-col items-center justify-center gap-3 rounded-full border border-gray-200 bg-[#CA2E55] px-10 md:px-16 py-4 shadow-sm hover:shadow-md hover:bg-[#E8395F] hover:scale-110 transition-all duration-300">
-        <span class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors">Jeu</span>
+        <span class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors">{{ lang.t().home.btnGame }}</span>
       </a>
 
       <a href="#dessin" class="group flex flex-col items-center justify-center gap-3 rounded-full border border-gray-200 bg-[#FEE1C7] px-10 md:px-16 py-4 shadow-sm hover:shadow-md hover:bg-[#F4A97E] hover:scale-110 transition-all duration-300">
-        <span class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors">Dessin</span>
+        <span class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors">{{ lang.t().home.btnDrawing }}</span>
       </a>
 
       <a href="#logo" class="group flex flex-col items-center justify-center gap-3 rounded-full border border-gray-200 bg-[#8A6552] px-10 md:px-16 py-4 shadow-sm hover:shadow-md hover:bg-[#6B4E3D] hover:scale-110 transition-all duration-300">
-        <span class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors">Logo</span>
+        <span class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors">{{ lang.t().home.btnLogo }}</span>
       </a>
     </div>
   </div>
 
   <section id="jeu" class="mt-16 md:mt-24 text-left px-4 md:px-6">
-    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Jeu</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">{{ lang.t().home.btnGame }}</h2>
     <app-game-cards />
   </section>
 
   <section id="dessin" class="mt-16 md:mt-24 text-left max-w-5xl mx-auto px-4 md:px-6">
-    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Dessin</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">{{ lang.t().home.btnDrawing }}</h2>
     <app-drawing-gallery />
   </section>
 
   <section id="logo" class="mt-16 md:mt-24 text-left max-w-5xl mx-auto px-4 md:px-6">
-    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Logo</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">{{ lang.t().home.btnLogo }}</h2>
     <app-logo-gallery />
   </section>
 </main>

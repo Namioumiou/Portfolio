@@ -1,5 +1,6 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { ModalStateService } from '../../services/modal-state.service';
+import { LangService } from '../../services/lang.service';
 
 export interface LogoVersion {
   src: string;
@@ -23,6 +24,7 @@ export interface Logo {
 })
 export class LogoGalleryComponent {
   private modalState = inject(ModalStateService);
+  lang = inject(LangService);
 
   logos: Logo[] = [
     {
@@ -46,6 +48,10 @@ export class LogoGalleryComponent {
 
   get active(): Logo | null {
     return this.activeIndex !== null ? this.logos[this.activeIndex] : null;
+  }
+
+  get activeDescription(): string {
+    return this.activeIndex !== null ? this.lang.t().logos[this.activeIndex].description : '';
   }
 
   open(index: number) {

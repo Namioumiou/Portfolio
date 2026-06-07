@@ -1,5 +1,6 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { ModalStateService } from '../../services/modal-state.service';
+import { LangService } from '../../services/lang.service';
 
 @Component({
   selector: 'app-about',
@@ -8,6 +9,7 @@ import { ModalStateService } from '../../services/modal-state.service';
 })
 export class AboutComponent {
   private modalState = inject(ModalStateService);
+  lang = inject(LangService);
 
   isOpen = false;
 

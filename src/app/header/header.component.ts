@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { LangService } from '../services/lang.service';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  lang = inject(LangService);
+
   pillLeft = 0;
   pillWidth = 0;
   pillColor = '#CA2E55';
