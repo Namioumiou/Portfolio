@@ -8,7 +8,7 @@ const T = {
     nav: { home: 'Accueil', about: 'A propos', contact: 'Contact' },
     home: { btnGame: 'Jeu', btnDrawing: 'Dessin', btnLogo: 'Logo' },
     about: { 
-      title: 'A propos', 
+      title: 'A propos de moi', 
       download: 'Télécharger le CV', 
       description: 'Bonjour ! Je m\'appelle Ambre Rouillon et je suis actuellement dans des études d\'informatique, mais mon objectif est de devenir game designer. J\'ai envie de pouvoir créer des jeux dont les joueurs ce souviendront et qui les toucherons. J\'adore apprendre de nouvelles choses, je n\'hésite pas à aller voir des conférences sur certains aspects de la création d\'un jeu ou a suivre des formations en ligne afin de m\'améliorer et de pouvoir réaliser mes idées de la meilleure manière possible.'
     },
@@ -72,7 +72,7 @@ const T = {
     nav: { home: 'Home', about: 'About', contact: 'Contact' },
     home: { btnGame: 'Game', btnDrawing: 'Drawing', btnLogo: 'Logo' },
     about: { 
-      title: 'About', 
+      title: 'About me', 
       download: 'Download CV', 
       description: 'Hi ! My name is Ambre Rouillon and I am currently studying computer science, but my goal is to become a game designer. I want to be able to create games that players will remember and that will touch them. I love learning new things, I don’t hesitate to go to conferences on certain aspects of creating a game or to take online training in order to improve and be able to realize my ideas in the best possible way.' 
     },
