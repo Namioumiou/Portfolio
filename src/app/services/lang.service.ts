@@ -10,7 +10,7 @@ const T = {
     about: { 
       title: 'A propos de moi', 
       download: 'Télécharger le CV', 
-      description: 'Bonjour ! Je m\'appelle Ambre Rouillon. J\'ai 24 ans et je suis actuellement dans des études d\'informatique, mais mon objectif est de devenir game designer. J\'ai envie de pouvoir créer des jeux dont les joueurs ce souviendront et qui les toucherons. J\'adore apprendre de nouvelles choses, je n\'hésite pas à aller voir des conférences sur certains aspects de la création d\'un jeu ou a suivre des formations en ligne afin de m\'améliorer et de pouvoir réaliser mes idées de la meilleure manière possible.'
+      description: 'Bonjour ! Je m\'appelle Ambre Rouillon. J\'ai 24 ans et je suis actuellement dans des études d\'informatique, mais mon objectif est de devenir game designer. J\'ai envie de pouvoir créer des jeux dont les joueurs se souviendront et qui les toucheront. J\'adore apprendre de nouvelles choses, et je n\'hésite pas à aller voir des conférences sur certains aspects de la création d\'un jeu ou à suivre des formations en ligne afin de m\'améliorer et de pouvoir réaliser mes idées de la meilleure manière possible.'
     },
     contact: {
       title: 'Contactez-moi',
@@ -74,7 +74,7 @@ const T = {
     about: { 
       title: 'About me', 
       download: 'Download CV', 
-      description: 'Hi ! My name is Ambre Rouillon. I am 24 years old and I am currently studying computer science, but my goal is to become a game designer. I want to be able to create games that players will remember and that will touch them. I love learning new things, I don’t hesitate to go to conferences on certain aspects of creating a game or to take online training in order to improve and be able to realize my ideas in the best possible way.' 
+      description: 'Hi ! My name is Ambre Rouillon. I am 24 years old and I am currently studying computer science, but my goal is to become a game designer. I want to be able to create games that players will remember and that will touch them. I love learning new things, and I don’t hesitate to go to conferences on certain aspects of creating a game or to take online training in order to improve and be able to realize my ideas in the best possible way.' 
     },
     contact: {
       title: 'Contact me',
